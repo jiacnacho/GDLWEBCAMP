@@ -669,7 +669,7 @@ div.invitado p {
 
 .mapa{
   height: 400px;
-  background-color: green;
+  
 }
 
 /** TESTIMONIALES **/
@@ -957,6 +957,12 @@ div.paquetes .tabla-precio input {
   padding: 30px;
 }
 
+.divisorprodu{
+  display: flex;
+  justify-content: space-between; 
+  
+}
+
 .resumen input{
   display: block;
   margin: 10px auto;
@@ -972,6 +978,17 @@ div.paquetes .tabla-precio input {
   text-align: center;
   font-size: 2em;
   color: #fe4918;
+}
+
+/* input[disabled].button {
+  opacity: .5;
+} */
+
+#error {
+  clear: both;
+  padding: 20px;
+  text-align: center;
+  display: none;
 }
 
 

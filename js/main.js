@@ -2,11 +2,22 @@
  'use strict';
 
  document.addEventListener('DOMContentLoaded', function(){
+
+    // MAPA 
+    var map = L.map('mapa').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
     
     // Campos Datos usuario
     let nombre = document.getElementById('nombre');
     let apellido = document.getElementById('apellido');
-    let email = document.getElementById('meail');
+    let email = document.getElementById('email');
 
     // Campos pases
     let pase_dia = document.getElementById('pase_dia');
@@ -26,11 +37,45 @@
     let etiquetas = document.getElementById('etiquetas');
     let camisas = document.getElementById('camisa_evento');
     
+    // ESPERA DE DATOS
+
     calcular.addEventListener('click', calcularMontos);
 
     pase_dia.addEventListener('blur', mostrarDias);
     pase_dosdias.addEventListener('blur', mostrarDias);
     pase_completo.addEventListener('blur', mostrarDias);
+
+    // Validacion de campos
+
+    nombre.addEventListener('blur', validarCampos);
+    apellido.addEventListener('blur', validarCampos);
+    email.addEventListener('blur', validarCampos);
+    email.addEventListener('blur', validarMail);
+
+    function validarCampos(){
+        if(this.value == ''){
+            errorDiv.style.display = 'block';
+            errorDiv.innerHTML = "este campo es obligatorio";
+            this.style.border = '1px solid red';    
+            errorDiv.style.border = '1px solid red';
+        }else{
+            errorDiv.style.display = 'none';
+            this.style.border = '1px solid #cccccc';
+        }
+    }
+
+    function validarMail() {
+        if(this.value.indexOf("@") > -1){ //IndexOFF busca el caracter en la cadena o en un array. SI no existe el valor indica -1
+            errorDiv.style.display = 'none';
+            this.style.border = '1px solid #cccccc';
+        }else{
+            errorDiv.style.display = 'block';
+            errorDiv.innerHTML = "El campo Email debe tener al menos un @";
+            this.style.border = '1px solid red';    
+            errorDiv.style.border = '1px solid red';
+        }
+        
+    }
 
     function calcularMontos(event){
         event.preventDefault();        

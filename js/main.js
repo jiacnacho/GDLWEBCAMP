@@ -11,8 +11,11 @@
     }).addTo(map);
 
     L.marker([-34.6204834, -58.4698934]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
+    .bindPopup('GDLWebCamp 2018 <br> Boletos ya disponibles')
+    .openPopup()
+    .bindTooltip('Un Tooltip')
+    .openToolTip('');
+
     
     // Campos Datos usuario
     let nombre = document.getElementById('nombre');
@@ -38,7 +41,7 @@
     let camisas = document.getElementById('camisa_evento');
     
     // ESPERA DE DATOS
-
+    
     calcular.addEventListener('click', calcularMontos);
 
     pase_dia.addEventListener('blur', mostrarDias);
@@ -51,7 +54,7 @@
     apellido.addEventListener('blur', validarCampos);
     email.addEventListener('blur', validarCampos);
     email.addEventListener('blur', validarMail);
-
+    // VALIDAR CAMPOS
     function validarCampos(){
         if(this.value == ''){
             errorDiv.style.display = 'block';
@@ -63,7 +66,7 @@
             this.style.border = '1px solid #cccccc';
         }
     }
-
+    // VALIDAR MAILS
     function validarMail() {
         if(this.value.indexOf("@") > -1){ //IndexOFF busca el caracter en la cadena o en un array. SI no existe el valor indica -1
             errorDiv.style.display = 'none';
@@ -76,8 +79,8 @@
         }
         
     }
-
-    function calcularMontos(event){
+    // CALCULAR MONTOS
+    function calcularMontos(event){        
         event.preventDefault();        
         if(regalo.value === ''){
             alert('Debes elegir un regalo')
@@ -150,3 +153,4 @@
     
  }); // DOM CONTENT LOADED
 })();
+

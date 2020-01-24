@@ -1,9 +1,12 @@
+// SECCION REGISTRO
+
 (function(){
  'use strict';
 
  document.addEventListener('DOMContentLoaded', function(){
 
     // MAPA 
+<<<<<<< HEAD
     var map = L.map('mapa').setView([-34.6204834, -58.4698934], 13);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -16,6 +19,22 @@
     .bindTooltip('Un Tooltip')
     .openToolTip('');
 
+=======
+    
+/*         if(DocumentFragment.get)
+        var map = L.map('mapa').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .openPopup();        */
+    
+
+
+>>>>>>> ee3c2d6a38ada9bbfb6e7656d51bbf6a7d2a30f7
     
     // Campos Datos usuario
     let nombre = document.getElementById('nombre');
@@ -154,3 +173,19 @@
  }); // DOM CONTENT LOADED
 })();
 
+<<<<<<< HEAD
+=======
+$(function(){
+    $('.programa-evento .info-curso:first').show();
+    $('.menu-programa a:first').addClass('activo');
+
+    $('.menu-programa a').on('click', function(){
+        $('.menu-programa a').removeClass('activo');
+        $(this).addClass('activo');
+        $('.ocultar').hide()
+        var enlace = $(this).attr('href');
+        $(enlace).fadeIn(1000);
+        return false;
+    });
+});
+>>>>>>> ee3c2d6a38ada9bbfb6e7656d51bbf6a7d2a30f7
